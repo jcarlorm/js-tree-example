@@ -18,8 +18,8 @@
     <script src=""></script>
     <script>
         $(function () { 
-            
-            $('#jstree').jstree({ 
+            const tree = $('#jstree')
+            tree.jstree({ 
                 'core' : {
                     'data' : [
                     { "id" : "1", "parent" : "#", "text" : "Ema" },
@@ -33,7 +33,11 @@
                         'icon': '/img/tree_icon.png'
                     }
                 } 
-            }); 
+            })
+            
+            .on('loaded.jstree', function() {
+                tree.jstree('open_all')
+            })
         })
     </script>
 </body>
